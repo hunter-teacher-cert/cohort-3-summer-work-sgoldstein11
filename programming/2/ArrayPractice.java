@@ -12,15 +12,25 @@ public class ArrayPractice
   //builds an array of a given size with a start value and increment value
   public static int[] buildIncreasingArray(int size, int startValue, int step)
   {
-    int[] data = new int[size];
+    int[] data = new int[size];//making a new array called data of size that is passed as a parameter 
 
     // loop through each element of the array and assign the appropriate value to each one
-    for (int i = 0; i < size; i++){
-      data[i] = startValue + (step * i);
-    }
+  //   for (int i = 0; i < size; i++){
+  //     data[i] = startValue + (step * i);
+      
+  //   }
 
-    return data;
-  }
+  //   return data;
+  // }
+
+  data[0] = startValue; 
+
+   for(int i = 1; i < size; i++) {
+     data[i] = data[i -1] + step;
+   }
+
+return data; 
+}
 
   
 // builds an array of random numbers of a given size
