@@ -154,11 +154,12 @@ public class Array2DPractice
     /* YOUR AWESOME CODE HERE */
     for(int i = row-1; i <= row + 1; i = i +1){
                 System.out.println("row " + i);
-
+      
       for(int j = col - 1; j <= col + 1; j = j+1){
         System.out.println("col" + j);
         //if the i not equal to row and j is not equal to col
-        if(i != row || j != col){
+        if(i != row || j != col){ //works now! but no edge casing!
+            //before we try to change anything, lets mak
             board[i][j] = 'X'; //change the value to X
             System.out.println("change!");
           }
@@ -250,3 +251,5 @@ public class Array2DPractice
     */
   }
 }
+//
+
