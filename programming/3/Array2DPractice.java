@@ -152,24 +152,19 @@ public class Array2DPractice
     //row = 1
     //col = 1
     /* YOUR AWESOME CODE HERE */
-    for(int i = row-1; i <= row + 1; i = i +1){
-                System.out.println("row " + i);
-      
-      for(int j = col - 1; j <= col + 1; j = j+1){
-        System.out.println("col" + j);
-        //if the i not equal to row and j is not equal to col
-        if(i != row || j != col){ //works now! but no edge casing!
-            //before we try to change anything, lets mak
-            board[i][j] = 'X'; //change the value to X
-            System.out.println("change!");
+    for(int i = row-1; i <= row + 1; i = i +1){      
+      for(int j = col - 1; j <= col + 1; j = j+1){ 
+        
+        if(i != row || j != col){ //if the i not equal to row or j is not equal to col
+            //before we try to change anything, lets make sure that i and j are valid indices 
+            if((i >= 0 && i < board.length) && (j >= 0 && j < board[i].length)){ //i and j must be greater than or equal to 0 and less than the length of the size of the board 
+              board[i][j] = 'X'; //change the value to X
+            }
           }
-          
         //System.out.print(i + " , " + j + " | ");
       }
       //System.out.println();
     }
-    
-      
   }
 
   /**
@@ -189,7 +184,13 @@ public class Array2DPractice
   */
   public static void explodeAllChar(char[][] board, char c)
   {
-    /* YOUR AWESOME CODE HERE */
+    for (int i = 0; i < board.length; i++) { 
+      for (int j = 0; j < board[i].length; j++) { 
+        if(board[i][j] == 'C'){
+          
+        }
+      }
+    }
   }
 
 
@@ -239,7 +240,8 @@ public class Array2DPractice
     char[][] b = buildBoard(4,4,'Q');    
    
     printBoard(b); 
-    explodeSquare(b, 1, 1);
+    explodeSquare(b, 3, 3);
+    //explodeSquare(b,1,1);
     System.out.println("--------------");
     printBoard(b); 
     
@@ -251,5 +253,3 @@ public class Array2DPractice
     */
   }
 }
-//
-
