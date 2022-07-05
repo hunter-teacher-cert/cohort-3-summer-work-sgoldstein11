@@ -148,10 +148,6 @@ public class ArrayPractice
 
   public static void main( String[] args )
   {
-
-    // remove the comments as you complete each routine
-    // and add more lines as you add additional routines.
-
      // int[] data1 = buildRandomArray(6, 10);
     int[] data2 = buildIncreasingArray(10,6,2);
      printArray(data2);
