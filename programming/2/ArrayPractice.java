@@ -1,187 +1,267 @@
+import java.io.*;
+import java.util.*;
+
 /**
- * ArrayPractice by Team BossCoders
- * collaborators: Sarah McCoy, Rachel Kaufman, Stacy Goldstein, Jenna Lin
+ * Array2DPractice by Team LucidThinkeren
+ * First Last
+ * collaborators: Adam Driggers, Dave Ciolino-Volano, Alise Braick, Stacy Goldstein
  */
 
-import java.util.*;
-import java.io.*;
+/**
+   INSTRUCTIONS:
+   Place this file in a folder named programming/3/.
+   This file contains the following completed method. Use it as a model
+   to help you with the other methods:
+   - buildBoard
+   This file also contains stubs (empty methods) for the following
+   methods (split into 3 levels):
+   Basic level (complete all):
+   - printBoard *
+   - copyBoard *
+   Intermediate level (complete Basic methods plus this method):
+   - explodeSquare *
+   Advanced level (complete Basic + Intermediate + these two methods):
+   - explodeAllChar *
+   - downString
+   The routines with the * will be particularly helpful for the
+   Conway's Game of Life project that you'll work on after this one.
+*/
 
-public class ArrayPractice
+
+/**
+   creates and returns a 2D array of size rowsxcols chars. All elements
+   in the 2D array will be set to the char value.
+   Ex: buildBoard(3,4,'x') will return this 2D array:
+   xxxx
+   xxxx
+   xxxx
+   xxxx
+   Use this completed method as an example to help you with some of the
+   other methods.
+*/
+
+public class Array2DPractice
 {
-
-  //builds an array of a given size with a start value and increment value
-  public static int[] buildIncreasingArray(int size, int startValue, int step)
+  public static char[][] buildBoard( int rows, int cols, char value )
   {
-    int[] data = new int[size];//making a new array called data of size that is passed as a parameter 
+    char[][] board = new char[rows][cols];
+    for (int i = 0; i < rows; i++) {
+      for (int j = 0; j < cols; j++) {
+        board[i][j]=value; //sets a value for the current index
+      }
+    }
+    return board;
+  }
 
-    // loop through each element of the array and assign the appropriate value to each one
-  //   for (int i = 0; i < size; i++){
-  //     data[i] = startValue + (step * i);
-      
-  //   }
+  /**
+     pretty prints a 2D array of characters
+     This should print the array as a grid
+  */
+  public static void printBoard( char[][] board )
+  {
+      for (int i = 0; i < board.length; i++) { //loop through the the rows
+        for (int j = 0; j < board[i].length; j++) { //loop through each column for each row
+        System.out.print(board[i][j] + " "); //print each value
+      }
+        System.out.println(); //starts a new line
+    }
 
-  //   return data;
-  // }
+    //this works too! but feels like cheating
+   // for(int i = 0; i < board.length; i++){             
+   //   System.out.println(board[i]);
+   // }
+  }
 
-  data[0] = startValue; 
+  /**
+     Parameters:
+     board - a 2D array of char
+     row - the row you want to set
+     value - the value to set all the elements in row
+     Returns:
+     Nothing
+     Change the 2D array board so that all the elements in the
+     specified row are set to value.
+     Ex: Given array:
+     xxxx
+     xxxx
+     xxxx
+     xxxx
+     setRow(board,2,'@') will change board to
+     xxxx
+     xxxx
+     @@@@
+     xxxx
+  */
+  public static void setRow( char[][] board, int row, char value )
+  {
+    for (int cols =  0; cols < board[row] .length; cols++){
+      board[row][cols] = value;
+    }
+  }
 
-   for(int i = 1; i < size; i++) {
-     data[i] = data[i -1] + step;
-   }
 
-return data; 
-}
+  /**
+     creates and returns a new 2D array of char the same size as
+     original and copies all the elements
+  */
+  public static char[][] copyBoard( char[][] original )
+  {
+    int rows = original.length;
+    int cols = original[0].length;
+    char [][] copied = new char [rows][cols];
 
+    for (int i =0; i< rows; i++){
+      for(int j = 0; j <cols; j++){
+        copied[i][j] = original[i][j];
+      }
+    }
+    return copied;
+  }
+
+
+  /**
+     Parameters:
+     board - a 2D array of char
+     row,col - ints specifying a location in board
+     Returns:
+     nothing
+     A location in a 2D array can be though of as having 6
+     neighbors.  In the below 2D array, the neighbors of the element
+     marked Q are the numbered elements.
+     oooooo
+     o123oo
+     o4Q5oo
+     o678oo
+     oooooo
+     This method should change all the neighbor cells (elements) to an X
+     but not change the element at row,col
+     Ex:
+     Given the 2D array
+     QQQQQ
+     QQQQQ
+     QQQQQ
+     QQQQQ
+     explodeSquare(board,1,1) will change the array to
+     XXXQQ
+     XQXQQ
+     XXXQQ
+     QQQQQ
+     Note: Make sure to correctly handle the cases when you try
+     to explode an element on the edges.
+  */
   
-// builds an array of random numbers of a given size
-  public static int[] buildRandomArray( int size, int maxValue )
+  
+  public static void explodeSquare( char[][] board, int row, int col )
   {
-    Random r = new Random();
-    int[] data = new int[size];
-
-    for (int i = 0; i < size; i++){
-      data[i] = r.nextInt(maxValue);
+    //row = 1
+    //col = 1
+    /* YOUR AWESOME CODE HERE */
+    for(int i = row-1; i <= row + 1; i = i +1){      
+      for(int j = col - 1; j <= col + 1; j = j+1){ 
+        
+        if(!(i == row && j == col)){ //if the i not equal to row or j is not equal to col
+            //before we try to change anything, lets make sure that i and j are valid indices 
+            if((i >= 0 && i < board.length) && (j >= 0 && j < board[i].length)){ //i and j must be greater than or equal to 0 and less than the length of the size of the board 
+              board[i][j] = 'X'; //change the value to X
+            }
+          }
+        //System.out.print(i + " , " + j + " | ");
+      }
+      //System.out.println();
     }
-
-    return data;
   }
 
-
-//prints any array of any size
-  public static void printArray( int[] data )
+  /**
+     This method will search through the 2D array board and it will
+     explode each square that contains the char c (using the above
+     definition of exploding).
+     Example:
+     Given the array
+     qXzXq
+     qXXXq
+     qqqqq
+     XXXqq
+     XzXqq
+     XXXXX
+     qqqXz
+     explodeAllchar(board,'z') will change board to:
+  */
+  public static void explodeAllChar(char[][] board, char c)
   {
-    System.out.print("Array: { ");
-     for (int i = 0; i < data.length; i++) {
-      System.out.print(data[i] + " ");
-    }
-    System.out.println("}");
-  }
-
-
-//returns the index of the first occurence of a requested value in an array
-  public static int firstOccurence( int[] data, int value )
-  {
-    int valPos = 0;
-    while (data[valPos] != value) {
-      valPos++;
-      
-      if(valPos == data.length) {
-        return -1;
+    for (int i = 0; i < board.length; i++) { 
+      for (int j = 0; j < board[0].length; j++) { 
+        if(board[i][j] == c){
+          explodeSquare( board, i, j);
+          
+        }
       }
     }
-
-    return valPos; 
   }
 
 
-//sums up an array of any size
-  public static int arraySum( int[] data )
+  /**
+     Parameters:
+     board - a 2D array of char
+     row,col - ints specifying a location in board
+     word - a String that you want to insert into the board.
+     This will insert the parameter word into board in the downward
+     direction. See examples below
+     Example:
+     Given this array
+     xxxxxx
+     xxxxxx
+     xxxxxx
+     xxxxxx
+     xxxxxx
+     xxxxxx
+     xxxxxx
+     downString(board,1,1,"Hello") will change board to:
+     xxxxxx
+     xHxxxx
+     xExxxx
+     xLxxxx
+     xLxxxx
+     xOxxxx
+     xxxxxx
+     Given the above array, downString(board,4,3,"World") will
+     change board to:
+     xxxxxx
+     xHxxxx
+     xExxxx
+     xLxxxx
+     xLxWxx
+     xOxOxx
+     xxxRxx
+     Note that the method has to stop at the bottom of the array.
+  */
+  public static void downString( char[][] board, int row, int col, String word )
   {
-    int sum=0;
-         
-    for (int datum:data) {
-      sum += datum;
-    }
-
-    return sum; // replace this
+    /* YOUR AWESOME CODE HERE */
   }
 
-
-// determines if the array is sorted in increasing order
-  public static boolean isSorted(int[] data)
-  {
-    // put length-1 to avoid out of bounds error
-    for (int i = 0; i < data.length - 1; i++) {
-      if (data[i] > data[i+1]) {
-        return false;
-      }
-    }
-
-    return true; 
-
-  }
-
-// finds and returns the max value in an array of any size
-	public static int findMaxValue( int[] data ) {
-    int maxVal=data[0];  // holds current max value, initialize to first value in array.
-
-    for (int datum : data) {
-			//Compare each value to the current maxVal
-       if (datum > maxVal) {
-       maxVal = datum;
-		}
-  } 
-
-    return maxVal;
-  }
-
-// counts and returns the number of odds in a given array
-  public static int countOdds( int[] data ) {
-    int count=0;
-
-    /* YOUR BRILLIANT CODE HERE */
-     for (int i = 0; i < data.length; i++) {
-       if(data[i]%2 !=0)
-         count++;
-     }
-
-    return count;
-  }
-
-// put an array down flip it and reverse it
-  public static void flip(int[] data )
-  {
-    int[] tempData = new int[data.length];
-
-    // copy original array into temporary array
-    for(int i=0; i < data.length; i++) {
-      tempData[i] = data[i];
-    }
-
-    //reset the original array in the reverse order
-    for(int i=0; i < data.length; i++) {
-      data[i] = tempData[(data.length-1) - i];
-    }
-    
-  }
-
-// originalarray = {A, B, C, D}
-// temparray = {A, B, C, D}
-
-  // i    [(data.length-1)]    [(data.length-1)] - i  RESULT (state of original)
-  // 0     3                   3											D, B, C, D
-  // 1     3                   2											D, C, C, D
-  // 2     3                   1											D, C, B, D
-  // 3     3                   0											D, C, B, A
-
-// originalarray = {D, C, B, A}
 
   public static void main( String[] args )
   {
-     // int[] data1 = buildRandomArray(6, 10);
-    int[] data2 = buildIncreasingArray(10,6,2);
-     printArray(data2);
-    // printArray(data2);
-
-    System.out.println("First occurence of value: " + firstOccurence(data2, 12));
+    char[][] b = buildBoard(4,4,'Q');    
+    printBoard(b); 
     
-    System.out.println("Max Value: " + findMaxValue(data2));
+    char[][] c = copyBoard (b);
+    printBoard (c);
 
-    System.out.println("Sum of array values: " + arraySum(data2));
+    setRow (b, 3, '%');
+    printBoard (b);
+    
+    explodeSquare(b, 3, 3);
+    System.out.println("--------------");
+    printBoard(b); 
 
-    System.out.println("Is it sorted? " + isSorted(data2));
-    System.out.println("Number of odd numbers in array: "+ countOdds(data2));
 
-    //not a return function so can't call it as a parameter
-    //here we use flip to reorder the array
-    flip(data2);
-
-    //print the revised array
-		System.out.print("Flipped ");
-    printArray(data2);
-
+    
+    /*
+      Note, you can directly set elements in the board
+      using array notation like b[3][2]='z' and you
+      can use array notation to also access individual
+      elements
+    */
   }
 }
-
-
- 
