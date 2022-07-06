@@ -240,8 +240,9 @@ public class Array2DPractice
     char[][] b = buildBoard(4,4,'Q');    
    
     printBoard(b); 
-    explodeSquare(b, 3, 3);
+    //explodeSquare(b, 3, 3);
     //explodeSquare(b,1,1);
+    explodeSquare(b,0,1);
     System.out.println("--------------");
     printBoard(b); 
     
