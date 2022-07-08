@@ -1,7 +1,7 @@
 /**
  * Rational class by Team BangPi
- * First Last
- * collaborators: First Last, First Last
+ 
+ *collaborators: Jerusha Theobald, Stacy Goldstein,Aasine Cassara
  */
 
 
@@ -34,6 +34,10 @@ public class Rational
   public Rational()
   {
     /* YOUR ELEGANT CODE HERE */
+    this._numerator = 0;
+    this._denominator = 1;
+
+    
   }
 
 
@@ -43,6 +47,14 @@ public class Rational
   public Rational( int n, int d )
   {
     /* YOUR ELEGANT CODE HERE */
+    _numerator = n;
+    _denominator = d;
+    if(_denominator ==0) {
+      System.out.println ("invalid");
+        _denominator = 1;
+        _numerator = 0;
+    }
+    // If denominator is 0, will printout "invalid" and it will be reset to a valid integer.
   }
 
 
@@ -51,6 +63,7 @@ public class Rational
   public String toString()
   {
     /* YOUR ELEGANT CODE HERE */
+    return this._numerator + "/" + this._denominator;
   }
 
 
@@ -59,19 +72,23 @@ public class Rational
   // uses the most precise floating point primitive
   public double floatValue()
   {
-    /* YOUR ELEGANT CODE HERE */
+  //   /* YOUR ELEGANT CODE HERE */
+    return (double) this._numerator/this._denominator;
   }
 
 
-  // multiply
-  // takes a Rational parameter and multiplies it by this Rational
-  // does not return a value
-  // modifies this object
-  // does not modify input
-  // need not reduce
+  // // multiply
+  // // takes a Rational parameter and multiplies it by this Rational
+  // // does not return a value
+  // // modifies this object
+  // // does not modify input
+  // // need not reduce
   public void multiply( Rational r )
   {
     /* YOUR ELEGANT CODE HERE */
+   _numerator *= r._numerator;
+   _denominator *= r._denominator;
+    
   }
 
 
@@ -80,6 +97,14 @@ public class Rational
   public void divide( Rational r )
   {
     /* YOUR ELEGANT CODE HERE */
+    if (r._numerator !=0){
+      _numerator *= r._denominator;
+    _denominator *= r._numerator;
+    } else {
+      System.out.println("Invalid");
+    }
+  
+  
   }
 
 }//end class
