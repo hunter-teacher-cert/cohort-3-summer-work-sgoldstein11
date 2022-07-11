@@ -1,0 +1,43 @@
+
+public static int banana(int[] a) {
+    int kiwi = 1;
+    int i = 0;
+    while (i < a.length) {
+        kiwi = kiwi * a[i];
+        i++;
+    }
+    return kiwi;
+}
+
+This is a method banana that thats the array a and multiples the first values of the array by 1. This changes the value of kiwi and that new value of kiwi is multiplied by the second value in the array. The value of kiwi keeps changing until it traverses to the end of the array. It generates a value of kiwi and that value is returned. 
+
+
+-----------------------------------
+
+public static int grapefruit(int[] a, int grape) {
+    for (int i = 0; i < a.length; i++) {
+        if (a[i] == grape) {
+            return i;
+        }
+    }
+    return -1;
+}
+
+This method will keep returning the value of the array if the value is equal to the value of grape. When it comes across a value not equal to grade it will return the value -1
+
+
+-------------------------------------------
+
+
+public static int pineapple(int[] a, int apple) {
+    int pear = 0;
+    for (int pine: a) {
+        if (pine == apple) {
+            pear++;
+        }
+    }
+    return pear;
+}
+
+This method will take an array "a" and everytime pine value is equal to apple then the value ot pear will increase by 1. When the whole array has been traversed, the value or pear will be returned. 
+
