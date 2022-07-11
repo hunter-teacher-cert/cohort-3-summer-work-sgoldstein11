@@ -16,13 +16,13 @@ public class SuperArrayDriver
     // YOUR HOMEGROWN/HOUSEMADE/ROLL-YOUR-OWN TEST METHODS HERE...
     // -----------------------------------------------------------
     //precondition: newly-instantiated SuperArray of default capacity
-    // System.out.println("Testing overfill (calling grow() in add)");
-    // for (int i=0; i<15; i++) {
-    //   sa.add(i);
-    // }//for i
-    // System.out.println(sa);
-    // System.out.println(sa.isEmpty());
-    // System.out.println("\nTesting add at index 5, 0 and 17(end)");
+    System.out.println("Testing overfill (calling grow() in add)");
+    for (int i=0; i<15; i++) {
+      sa.add(i);
+    }//for i
+    System.out.println(sa);
+    System.out.println(sa.isEmpty());
+    System.out.println("\nTesting add at index 5, 0 and 17(end)");
     // sa.add(5, 100);
     // System.out.println(sa);
     // sa.add(0, 100);
