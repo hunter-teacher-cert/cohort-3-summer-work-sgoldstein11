@@ -82,6 +82,8 @@ public class Time {
     }
 
 
+
+
     
 
     /**
@@ -136,13 +138,14 @@ public class Time {
        True if this instance and other represents the same time
        false otherwise.
     */
-    public boolean equals(Time other){
+    //public boolean equals(Time other){
 	// your code here)
-
-      
-
-	return false; // change this
-    }
+ //      if(this.time - other.time > 0){
+ //        return true;
+ //      }
+         
+	// return false; // change this
+ //    }
 
     /**
        Parameters:

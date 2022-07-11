@@ -31,11 +31,17 @@ public class Driver {
 	//assign var the address of a newly-apportioned Time object
 	t = new Time(12,30,30);
   System.out.println(t.toString());
-  t.set(2,55,00);
+  t.set(12,30,30);
   System.out.println(t.toString());
   t.add(other);
   System.out.println(t.toString());
-  
+  t.equals(other);
+  if(t == other){
+    System.out.println("These two are equal");
+  }
+      else {
+        System.out.println("These two are not equal");
+      }
   
     }//end main()
 
