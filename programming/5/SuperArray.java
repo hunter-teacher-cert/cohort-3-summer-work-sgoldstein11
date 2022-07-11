@@ -78,11 +78,11 @@ public class SuperArray
 
     // add item
     /* YOUR SIMPLE+SMART CODE HERE */
-    if(data.length <= numberElements {//if data length is 10 and elements is 10 then there is no room for an additional element
+    if(data.length <= numberElements) {//if data length is 10 and elements is 10 then there is no room for an additional element
       for(int =0; i<data.length; i++) {///so we have to loop through the original array and copy all ements to the temp array (which now is size 11)
         temp[i] = data[i];// copying
       }
-
+    
       data = temp; //resetting the original array to the new array temp
       
     }
