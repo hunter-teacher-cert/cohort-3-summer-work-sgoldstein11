@@ -33,20 +33,6 @@ public class SuperArray
 
 
   // ~~~~~~~~~~~~~~~ CONSTRUCTORS ~~~~~~~~~~~~~~~
-  //overloaded constructor -- allows specification of initial capacity
-  public SuperArray( int size )
-  {
-    //init underlying/inner storage of specified capacity
-    /* YOUR SIMPLE+SMART CODE HERE */
-    this.numberElements = size;
-
-    //init instance vars
-    /* YOUR SIMPLE+SMART CODE HERE */
-    this.data = new int [size];
-    
-
-  }
-
   //default constructor -- initializes capacity to 10
   public SuperArray()
   {
@@ -58,10 +44,26 @@ public class SuperArray
         /* YOUR SIMPLE+SMART CODE HERE */
     this.numberElements = 0;
   }
+  
+  //overloaded constructor -- allows specification of initial capacity
+  public SuperArray( int size )
+  {
+    //init underlying/inner storage of specified capacity
+    /* YOUR SIMPLE+SMART CODE HERE */
+    this.numberElements = 0;
+
+    //init instance vars
+    /* YOUR SIMPLE+SMART CODE HERE */
+    this.data = new int [size];
+    
+
+  }
+
+  
 
 
   // ~~~~~~~~~~~~~~~ METHODS ~~~~~~~~~~~~~~~
-  public void add( int value )
+  public void add( int value ) //int value tells us how many times to increase the length 
   {
     // test to see if we need to grow, then grow
     /**
@@ -72,13 +74,25 @@ public class SuperArray
        then only write this section once the rest is tested and working.
     */
     /* YOUR SIMPLE+SMART CODE HERE */
+    int[]temp = new int[data.length+1]; //+1 so that we start above the default value
 
     // add item
     /* YOUR SIMPLE+SMART CODE HERE */
+    if(data.length <= numberElements {//if data length is 10 and elements is 10 then there is no room for an additional element
+      for(int =0; i<data.length; i++) {///so we have to loop through the original array and copy all ements to the temp array (which now is size 11)
+        temp[i] = data[i];// copying
+      }
+
+      data = temp; //resetting the original array to the new array temp
+      
+    }
+
+    data[numberElements] = value; 
 
 
     // increment numberElements
     /* YOUR SIMPLE+SMART CODE HERE */
+    numberElements++;
 
   }//end add()
 
