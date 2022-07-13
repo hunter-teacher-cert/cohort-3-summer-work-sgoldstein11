@@ -1,0 +1,19 @@
+
+1.if (x > 0) && (x <10) {
+      System.out.println("positive single digit number.");
+    }
+}
+
+
+2. just for
+any not more 
+It's breakfast 
+!
+
+3. Main |   |
+   countdown | n | |4| |
+   countdown | n | |3| |
+   countdown | n | |2| |
+   countdown | n | |1| |
+   countdown | n | |0| |
+   
