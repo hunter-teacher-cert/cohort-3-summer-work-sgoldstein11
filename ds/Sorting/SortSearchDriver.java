@@ -34,15 +34,22 @@ public class SortSearchDriver {
   System.out.println("Binary search result index " + ss.binarySearch(7));
 
       //timing
-  int size = 10000; //integer declaration
+  int size = 100000; //integer declaration
   long start,elapsed; //declaring 2 long type variables
-  ss = new SortSearch(size); //creating a sortsearch object of an array named ss
+  ss = new SortSearch(size); //creating a sortsearch object of an array named ss - this is the delay that we are seeing when size is big - make the array of this size. Delay occurs because of array make - time measurement occurs after
+  ss.sort();
 	start = System.currentTimeMillis();//this is where timing starts - it will calc time of sorting not creating the array (time of start elapsed is called )
       //currentTimeMillis is a built in function to java 
-  ss.sort();
+  int resultBin = ss.binarySearch(7);
+  //int resultLin = ss.linearSearch(7);
+  //ss.linearSearch(7);
+      
 	// System.out.println(ss);
 	elapsed = System.currentTimeMillis() - start;
 	System.out.println("Size: " + size + " Time: " + elapsed);
+
+      
+  
 	    
     }
 }
