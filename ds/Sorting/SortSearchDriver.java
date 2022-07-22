@@ -53,3 +53,5 @@ public class SortSearchDriver {
 	    
     }
 }
+
+//binary search is always fast no matter how many elments you put in there -- faster than linear 
